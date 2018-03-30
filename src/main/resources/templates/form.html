@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+
+
+	<div class="container">
+		<h3 class="text-center">
+			<strong>THÊM TÀI KHOẢN MỚI</strong>
+		</h3>
+		<br></br>
+		<form action="#" th:action="@{/admin/save}" th:object="${user}"
+			method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{id}" />
+			<div class="form-group">
+				<label>Tên đăng nhập</label> <input type="text" class="form-control"
+					th:field="*{tendangnhap}" th:errorclass="field-error" /> <em
+					th:if="${#fields.hasErrors('tendangnhap')}" th:errors="*{tendangnhap}"></em>
+			</div>
+			<div class="form-group">
+				<label>Mật khẩu</label> <input type="text" class="form-control"
+					th:field="*{matkhau}" th:errorclass="field-error" /> <em
+					th:if="${#fields.hasErrors('matkhau')}" th:errors="*{matkhau}"></em>
+			</div>
+			<div class="col-md-12 text-center">
+				<button type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</form>
+	</div>
+	<br></br>
+	<br></br>
+
+</body>
+</html>
